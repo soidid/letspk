@@ -2,7 +2,13 @@
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	background: white;
 	margin: 5px;
+	margin-top: 16px;
 	position: relative;
+	padding-bottom: 70px;
+	
+}
+.Story:hover {
+	box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
 }
 .Story-title {
 	width: 100%;
@@ -10,11 +16,17 @@
 	padding: 4px;
 	color: rgb(53,55,54);
 	background: rgb(220,220,220);
+	padding-right: 80px;
+}
+.Story-titleMain {
+	overflow:hidden;  _overflow:visible;  zoom:1;
+	margin-left: 5px;
+	
 }
 .Story-toggleMore {
 	position: absolute;
-	right: 10px;
 	top: 5px;
+	right: 5px;
 	font-weight: 500;
 	font-size: 14px;
 	cursor: pointer;
@@ -23,49 +35,47 @@
 	text-decoration: underline;
 }
 
-.Story-figherCard {
+.Story-fighterCard {
 	width: 50%;
 	display: inline-block;
 	position: relative;
-
+	vertical-align: top;
 }
-.Story-figherCard--withBorder {
+.Story-fighterCard--withBorder {
 	border-right: 1px solid rgb(220,220,220);
 }
-/*.Story-figherCard:hover {
-	box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
-}*/
-.Story-figherCardTitle {
+
+.Story-fighterCardTitle {
 	font-weight: 800;
 	padding: 4px;
 	text-align: center;
 	border-bottom: 1px dotted rgb(220,220,220);
 	
 }
-.Story-figherCardSub {
+.Story-fighterCardSub {
 	font-size: 12px;
 	font-weight: 500;
 	text-align: left;
 	padding-left: 5px;
 	height: 40px;
 }
-.Story-figherImgWrapper {
+.Story-fighterImgWrapper {
 	text-align: center;
 	padding: 10px;
 }
-.Story-figherImg {
+.Story-fighterImg {
 	width: 60px;
 	height: 60px;
+	border-radius: 5px;
 	
 }
-.Story-figherStatement {
+.Story-fighterStatement {
 	padding: 0px 10px 10px 10px;
 	/*overflow:hidden;  
 	_overflow:visible;  
 	zoom:1;*/
-	height: 60px;
-	
 }
+
 .Story-votesA {
 	position: absolute;
 	right: 0;
@@ -98,11 +108,10 @@
 }
 .Story-action {
 	text-align: center;
-	padding:4px;
+	padding: 10px 4px;
 	border-top: 1px dotted rgb(220,220,220);
 	cursor: pointer;
 	font-weight: 800;
-	
 }
 .Story-action:hover {
     color: #C5AD71;
@@ -112,7 +121,7 @@
 	height: 50px;
 	position: absolute;
 	text-align: center;
-	top: 120px;
+	top: 140px;
 
 }
 .Story-pkCircle {
@@ -129,29 +138,59 @@
 	
 }
 
+/* -------------------------- */
+.Story-detail {
+	height: 0px;
+	overflow-y: hidden;
+	color: #424242;
+	margin-top: 10px;
+	font-size: 14px;
+}
+.Story-detail.is-show {
+	height: auto;
+	overflow-y: auto;
+
+	transition-property: all;
+	transition-duration: 2s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.Story-bottom {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
 @media screen and (min-width: 800px){
-	.Story-figherCard {
+	.Story-titleMain {
+		margin-left: 20px;
+	
+    }
+	.Story-fighterCard {
 		vertical-align: top;
 	}
-	.Story-figherCardTitle {
+	.Story-fighterCardTitle {
 	   font-size: 20px;
 	   font-weight: 800;
 	   padding: 10px;
 	   text-align: center;
 	   border-bottom: 1px dotted rgb(220,220,220);
     }
-    .Story-figherCardSub {
+    .Story-fighterCardSub {
 		text-align: center;
 		height: 14px;
     }  
-    .Story-figherImgA {
+    .Story-fighterImgA {
 		float: left;
+		margin-right: 10px;
+		margin-top: 15px;
 	}
-	.Story-figherImgB {
-		float: right
+	.Story-fighterImgB {
+		float: right;
+		margin-left: 10px;
+		margin-top: 15px;
 	}
 	.Story-pk {
-	    top: 30px;
+	    top: 36px;
 
     }
 }

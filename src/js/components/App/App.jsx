@@ -50,8 +50,9 @@ var App = React.createClass({
     return (
       <div className="App">
         <div className="App-title">矛盾大對決。ほこ×たて</div>
+        <div className="App-subTitle">矛盾大對決，好矛盾啊！ (ˊ● ω ●ˋ) そうだね～</div>
         {storyItems}
-        <div className="App-footer">矛盾大對決，好矛盾啊！ (ˊ● ω ●ˋ) そうだね～</div>
+        
       </div>
     );
   }

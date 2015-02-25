@@ -1,0 +1,43 @@
+{  
+   "1":{  
+      "index":1,
+      "title":"懲罰賄選與比例原則的對決",
+      "sideA":{  
+         "name":"公民監督國會聯盟",
+         "imgURL":"./images/ccw.jpg",
+         "sub":"懲罰賄選，不能再選也只是剛好",
+         "statement":"《選罷法》26條修法對選舉風氣有不良影響。",
+         "voteCount":48,
+         "detail":"公職人員選舉罷免法第二十六條條文修正草案：http://ly.g0v.tw/bills/1044L14972"
+      },
+      "sideB":{  
+         "name":"立委陳超明",
+         "imgURL":"./images/square/陳超明.jpg",
+         "sub":"我最支持懲罰賄選，但你有聽過比例原則嗎",
+         "statement":"買票該嚴懲，但比例原則也很重要。",
+         "voteCount":12,
+         "detail":""
+      }
+
+   },
+   "2":{  
+      "index":2,
+      "title":"食安問題！如何才能罰得到？",
+      "sideA":{  
+         "name":"立委王育敏",
+         "imgURL":"./images/square/王育敏.jpg",
+         "sub":"罰得到、罰得重！國民黨關心您",
+         "statement":"因為刑罰效力優於行政裁罰，且一罪不兩罰，導致一年前的「大統長基混油案」最後輕罰。把裁罰大刀交給衛福部，才能「罰得到、罰得重」。",
+         "voteCount":1,
+         "detail":""
+      },
+      "sideB":{  
+         "name":"立委田秋堇",
+         "imgURL":"./images/square/田秋堇.jpg",
+         "sub":"保留「法人除罪化」",
+         "statement":"將「法人除罪化」，企業主可將其資產轉移到公司規避處罰。刑法較為嚴格，行政法罰必須經行政法院判決，最後可能罰不到",
+         "voteCount":12,
+         "detail":""
+      }
+   }
+}
