@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var Story = require('../Story/Story.jsx');
-
+var DefaultHide = require('../DefaultHide/DefaultHide.jsx');
 
 var AppStore = require('../../stores/AppStore');
 var AppActions = require('../../actions/AppActions');
@@ -19,7 +19,9 @@ var App = React.createClass({
   
   getInitialState(){
     return {
-    	data: []
+    	data: [],
+      showDetail: false,
+      showDetailItem: {}
     }
   },
  
@@ -38,20 +40,37 @@ var App = React.createClass({
     });
   },
 
+  _toggleDefaultHide (i, event) {
+    this.setState({
+      showDetail: !this.state.showDetail,
+      showDetailItem: i
+    });
+
+  },
+
  
   render () {
   	var storyItems = this.state.data.map((item,index)=>{
+         var boundClick = this._toggleDefaultHide.bind(null,item);
          return (
               <Story data={item}
-                     key={index}/>
+                     key={index}
+                     handleClick={boundClick} />
           )
 
     });
+
+    //NEEDS patch
+    var classes = this.state.showDetail ? "App--limitedHeight" : "App";
+
     return (
-      <div className="App">
+      <div className={classes}>
         <div className="App-title">矛盾大對決。ほこ×たて</div>
         <div className="App-subTitle">矛盾大對決，好矛盾啊！ (ˊ● ω ●ˋ) そうだね～</div>
         {storyItems}
+        <DefaultHide show={this.state.showDetail}
+                     handleClick={this._toggleDefaultHide}
+                     data={this.state.showDetailItem}/>
         
       </div>
     );

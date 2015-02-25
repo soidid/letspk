@@ -3,6 +3,15 @@
 	position: relative;
 	margin-top: 10px;
 }
+.App--limitedHeight {
+	width: 100%;
+	position: relative;
+	margin-top: 10px;
+
+	height: 100vh;
+	overflow: hidden;
+	
+}
 .App-title {
 	color: #C5AD71;
 	font-weight: 800;

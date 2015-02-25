@@ -11,8 +11,7 @@ var Story = React.createClass({
   
   getInitialState(){
     return {
-      showDetail: false
-    	
+      
     }
   },
 
@@ -20,12 +19,6 @@ var Story = React.createClass({
     //console.log(i);
     AppActions.update(i);
 
-  },
-
-  _toggleDetail () {
-    this.setState({
-      showDetail: !this.state.showDetail
-    });
   },
 
   render () {
@@ -50,13 +43,14 @@ var Story = React.createClass({
     var boundClickA = this._onVote.bind(null, {id: index, side: "sideA", obj: sideA});
     var boundClickB = this._onVote.bind(null, {id: index, side: "sideB", obj: sideB});
     
-    var detailToggleItem = this.state.showDetail ? "隱藏詳細" : "詳細請求";
+    var detailToggleItem = this.props.detailVersion ? "" : <div className="Story-toggleMore"
+                   onClick={this.props.handleClick}>詳細請求</div>;
 
-    var detailItemA = this.state.showDetail ? 
+    var detailItemA = this.props.detailVersion ? 
     <div className="Story-detail is-show"> {sideA.detail} </div> : 
     <div className="Story-detail"></div>;
 
-    var detailItemB = this.state.showDetail ? 
+    var detailItemB = this.props.detailVersion ? 
     <div className="Story-detail is-show"> {sideB.detail} </div> : 
     <div className="Story-detail"></div>;
 
@@ -65,8 +59,7 @@ var Story = React.createClass({
       <div className="Story">
           <div className="Story-title">
               <div className="Story-titleMain">#{index} {title}</div>
-              <div className="Story-toggleMore"
-                   onClick={this._toggleDetail}>{detailToggleItem}</div>
+              {detailToggleItem}
 
           </div>
 
