@@ -45,8 +45,12 @@ function _create(item) {
 //利用 assign 做部分 update
 //updates 為需要更新的部分, {key: value}
 //assign (target, ...sources)
-function _update(id, updates) {
-  _issues[id] = assign({}, _issues[id], updates);
+function _update(id, side, newCount) {
+  //_issues[id] = assign({}, _issues[id], updates);
+  var ref = new Firebase('https://letspk.firebaseio.com/issues/'+id+'/'+side);
+      ref.update({
+        voteCount: newCount
+      });
 }
 
 function _destroy(id) {
@@ -68,7 +72,7 @@ var AppStore = merge(EventEmitter.prototype, {
 // assign 的寫法
 // var TodoStore = assign({}, EventEmitter.prototype, {
 
-  getissues: function() {
+  getAll: function() {
     return _issues;
   },
 
@@ -98,27 +102,27 @@ var AppStore = merge(EventEmitter.prototype, {
 //
 // Load initial data
 
-// var ref = new Firebase('https://issuesharing.firebaseio.com/issues');
-// ref.on('value', function(snap) {
-//   var objects = snap.val();
-//   var items = [];
-//   var sorted = [];
+var ref = new Firebase('https://letspk.firebaseio.com/issues');
+ref.on('value', function(snap) {
+  var objects = snap.val();
+  var items = [];
+  var sorted = [];
 
-//   for(var key in objects){
-//     items.push(objects[key]);
-//   }
+  for(var key in objects){
+    items.push(objects[key]);
+  }
 
-//   sorted = items.sort(function(a,b){
-//     return b.timestamp - a.timestamp;
-//   })
+  sorted = items.sort(function(a,b){
+    return b.timestamp - a.timestamp;
+  })
 
-//   _issues = sorted;
-//   console.log("Load data from firebase:");
-//   console.log(_issues);
-//   //emit change here
-//   AppStore.emitChange();
+  _issues = sorted;
+  //console.log("Load data from firebase:");
+  //console.log(_issues);
+  //emit change here
+  AppStore.emitChange();
 
-// });
+});
 
 //========================================================================
 //
@@ -141,6 +145,15 @@ AppDispatcher.register(function(action) {
     //   }
     //   AppStore.emitChange();
     //   break;
+
+    case AppConstants.ISSUE_UPDATE:
+      
+      var newCount = action.item.obj.voteCount+1;
+
+      _update(action.item.id, action.item.side, newCount);
+      AppStore.emitChange();
+
+      break;
 
     
 
